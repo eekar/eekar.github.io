@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<title>Roman Semenov: Interaction Designer</title>
+<head>
+	<meta name="viewport" content="width=device-width"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body style="padding-left:40px; padding-right:40px">
+	<div class="header">
+		<h1>Roman Semenov</h1>
+		<div class="header-descriptors-container">
+			<span class="content-text"  style="margin-right:48px;">Interaction designer</span> 
+
+			<div>
+				<a class="thumb-p-secondary content-text" href="https://www.linkedin.com/in/roman-semenov-b57180119/" target="_blank">linkedin</a>
+				<a class="thumb-p-secondary content-text" href="http://t.me/semeromance" target="_blank">telegram</a>
+				<a class="thumb-p-secondary content-text" href="mailto:semeromance@gmail.com">semeromance@gmail.com</a>
+			</div>
+		</div>
+	</div>
+
+    <h1><a class="thumb-p-secondary content-text" style="font-weight: normal;" href="index.html">&larr; BACK</a></h1>
+	<div>
+		<h1>Feature design decomposition (World Of Warships: Legends Mobile)</h1>
+		<div class="content-text">Since summer 2020 we have started porting WoWS:Legends on mobile platforms in order to deliver a proper cross-platform MMO action with key point to try not to give neither platform an advantage in battle action.
+		<br><br>
+		Down below I would like to demonstrate design process of one particular feature.
+		</div>
+
+		<div class="pic">
+			<img src="img/qc_mockup_HUD.jpg">
+		</div>
+
+		<h2 style="text-transform:uppercase;">In-battle Quick Commands communication</h2>
+
+		<p class="content-text">
+			<span style="font-weight:bold;text-align: left;">Task is to develop mechanism of in-battle tactical and social communication. </span>
+			<br><br>
+			Tactical one — for battle actions coordination between allies; social one — for emotional engagement and keeping proper team morale and friendly atmosphere among the allies.<br><br>Tool itself should be rather simple to use, in order not to break battle concentration (since it is crucial to keep focus on maneuvrability and aiming/firing process during combat act).<br><br>Final quick-commands list consists of 8 tactical and 6 social commands.
+		</p>
+
+		<h3 style="text-transform:uppercase; margin-top: 60px;">Design</h3>
+
+		<p class="content-text">
+			<span style="font-weight:bold;">First of all, we’ve agreed that keep maneuvrability is more important than firing, as long as maneuvrability helps to keep Player alive (when firing just helps Player to sink the foes).</span>
+			<br><br>
+			Also the main HUD-pattern is that the left part of the screen is for movement controls and the right part is for weapon controls (this corresponds to console controller pattern to ease the players migration to a mobile version).
+			
+			According the above, Quick Command tool should be placed on right side in order to preserve maneuverability when executing quick commands. And due to a commands amount they will be hidden behind some context state. 
+			<br><br>
+		</p>
+	
+		<p class="content-text" style="font-style: italic; padding-left:20px; border-left: 3px solid black;">
+			<span style="font-weight: bold;">On album oriented  device, there are an Easy and Reach areas on the touch area.</span>
+			<br><br>
+			<span style="font-weight: bold;">Easy-area</span> it is a screen part that easily accessible by thumb, without necessity to change hands position on device.
+			<br><br>	
+			<span style="font-weight: bold;">Reach-area</span> is the rest part of the screen, so the controls on this part involve hands changing position and Player must <span style="font-style: italic;">reach</span> them. Controls on this area do not imply instant access.
+		</p>
+
+		<div class="pic">
+			<img src="img/qc_hand_position.jpg">
+		</div>
+
+		<p class="content-text">
+			Proceed with placing the button in the Easy-area and come up with a commands context state. The list should be scalable between 6 and 8 commands and convenient for quick selection.
+			<br><br>
+			The starting point of interaction with the Quick Commands is the button. If the task is formulated as <span style="font-style: italic;">"place N equal-valued objects at the same distance from each other"</span>, then the radial list looks comfortable, and 8 elements — a convenient set for placement along the major axes.
+		</p>
+
+		<div class="pic">
+			<img src="img/qc_mockup_split.jpg">
+		</div>
+
+		<h3 style="text-transform:uppercase;">Interaction</h3>
+
+		<p class="content-text">
+			For getting use with feature mechanics, regular [TAP+TAP] (one to unfold the list, second to dispatch the command) looks more familiar, so we've set this pattern as default behavior. 
+			<br><br>
+			However, we've added an option in the settings that allows Player to switch on an advanced mechanics, that requires a slightly higher mastering threshold, but a more efficient/faster way of communication — the interaction mechanics through [HOLD+HOVER+RELEASE], because one (yet complex) gesture is faster than two point touches, each of which requires aiming. <span style="font-style: italic;">Hold</span> the button to unfold the list, <span style="font-style: italic;">hover</span> finger to desired command and <span style="font-style: italic;">release</span> to dispatch it.
+			<br><br>
+			According to the <a href="https://en.wikipedia.org/wiki/Fitts%27s_law" target="blank" style="text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px;">Fitts law</a>, we've come up that when interacting through [HOLD], the command selection area might not be limited by the graphic representation of the icon on the circle, but may occupy the entire radial sector of the screen. 
+		</p>
+		<div class="pic">
+			<img src="img/qc_mech.jpg">
+		</div>
+
+		<p class="content-text">
+			Thus, for the selection and dispatching the  command, when the Player has already memorized the commands set, the logical action "Call allies to retreat" will look like "hold→left+down→release" and it doesn't matter at all how much "left+down" to pull away and where to release it. Player do not even need to aim at icon or recognize the command description (above the list).
+		</p>
+		<h2 style="font-weight: bold; max-width:650px;">
+			The apex-point of feature is: the minimum effective set of logical actions for any quick command is to remember the axis on which the desired command at. 
+		</h2>
+		<p class="content-text" style="margin-top: -30px">
+			<br><br>
+			At this point design part is finished and we follow up with the documentation and programming.</p>
+	</div>
+
+    <h1><a class="thumb-p-secondary content-text" style="font-weight: normal;" href="index.html">&larr; BACK</a></h1>
+
+</body>
